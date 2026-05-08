@@ -1,0 +1,784 @@
+/* index.css - Versão Super Decorada em Azul com Envelope Branco Lindo */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #dbeffa 0%, #c8e3f5 50%, #b5d8ef 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    font-family: 'Quicksand', system-ui, -apple-system, sans-serif;
+    position: relative;
+}
+
+/* Borda decorativa no body */
+body::before {
+    content: "";
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px dashed rgba(44, 125, 160, 0.3);
+    border-radius: 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Cantos decorativos */
+.corner-decoration {
+    position: fixed;
+    font-size: 28px;
+    z-index: 0;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.corner-1 { top: 15px; left: 15px; transform: rotate(-15deg); }
+.corner-2 { top: 15px; right: 15px; transform: rotate(15deg); }
+.corner-3 { bottom: 15px; left: 15px; transform: rotate(15deg); }
+.corner-4 { bottom: 15px; right: 15px; transform: rotate(-15deg); }
+
+/* Container principal */
+.container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilo do título/frase com decoração */
+h1 {
+    font-family: "Tangerine", cursive;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e6a8a;
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 10px 30px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+    box-shadow: 0 6px 18px rgba(30, 106, 138, 0.15), 
+                inset 0 1px 3px rgba(255,255,255,0.8);
+    display: inline-block;
+    position: relative;
+    border: 1px solid rgba(30, 106, 138, 0.3);
+}
+
+h1::before {
+    content: "💙";
+    position: absolute;
+    left: -28px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    opacity: 0.7;
+}
+
+h1::after {
+    content: "💙";
+    position: absolute;
+    right: -28px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+    opacity: 0.7;
+}
+
+/* Container da imagem */
+.img-wrapper {
+    background: white;
+    padding: 12px;
+    border-radius: 25px;
+    box-shadow: 0 12px 28px rgba(30, 106, 138, 0.2),
+                0 0 0 6px rgba(255, 255, 255, 0.5),
+                0 0 0 10px rgba(30, 106, 138, 0.1);
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    cursor: pointer;
+    position: relative;
+}
+
+.img-wrapper::before {
+    content: "🌸";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    font-size: 24px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: rotate(-20deg);
+}
+
+.img-wrapper::after {
+    content: "🌼";
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    font-size: 24px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: rotate(20deg);
+}
+
+.img-wrapper:hover::before {
+    opacity: 0.8;
+    transform: rotate(0deg);
+}
+
+.img-wrapper:hover::after {
+    opacity: 0.8;
+    transform: rotate(0deg);
+}
+
+.img-wrapper:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 35px rgba(30, 106, 138, 0.3),
+                0 0 0 6px rgba(255, 255, 255, 0.7),
+                0 0 0 10px rgba(30, 106, 138, 0.2);
+    padding: 10px;
+}
+
+/* Estilo da imagem */
+#imagem {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+#imagem:hover {
+    transform: scale(1.05) rotate(1deg);
+    filter: brightness(1.08) contrast(1.05) saturate(1.1);
+    box-shadow: 0 15px 30px rgba(30, 106, 138, 0.3);
+}
+
+@keyframes shimmer {
+    0% { box-shadow: 0 0 0 0 rgba(100, 180, 220, 0.5); }
+    50% { box-shadow: 0 0 0 12px rgba(100, 180, 220, 0.2); }
+    100% { box-shadow: 0 0 0 0 rgba(100, 180, 220, 0); }
+}
+
+#imagem:hover {
+    animation: shimmer 1.2s ease-in-out infinite;
+}
+
+#imagem:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+}
+
+/* Contador de fotos */
+.counter {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #1e6a8a;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    backdrop-filter: blur(4px);
+    padding: 8px 22px;
+    border-radius: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 3px 10px rgba(30, 106, 138, 0.15);
+    border: 1px solid rgba(30, 106, 138, 0.2);
+    position: relative;
+}
+
+.counter::before {
+    content: "📸";
+    font-size: 1rem;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.counter::after {
+    content: "✨";
+    font-size: 1rem;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: rotate(0deg); opacity: 0.7; }
+    50% { transform: rotate(20deg); opacity: 1; }
+}
+
+/* BOTÃO DA CARTINHA */
+.letter-button {
+    margin-top: 25px;
+    background: linear-gradient(135deg, #2c7da0, #1e6a8a);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(30, 106, 138, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.letter-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.letter-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.letter-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(30, 106, 138, 0.4);
+    background: linear-gradient(135deg, #3589ae, #257a9a);
+}
+
+.letter-button:active {
+    transform: translateY(0px);
+}
+
+.button-icon {
+    font-size: 1.3rem;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.button-text {
+    letter-spacing: 1px;
+}
+
+/* ========== ENVELOPE E CARTA REFORMULADOS ========== */
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #fff9f5, #fff5f0);
+    margin: 5% auto;
+    padding: 35px;
+    border-radius: 40px;
+    width: 90%;
+    max-width: 650px;
+    position: relative;
+    animation: slideIn 0.5s ease;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-60px) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 38px;
+    font-weight: bold;
+    color: #1e6a8a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.close-button:hover {
+    color: #ff6b6b;
+    transform: rotate(90deg) scale(1.1);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* ENVELOPE BRANCO LINDO */
+.envelope-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    position: relative;
+    perspective: 1000px;
+}
+
+.envelope {
+    width: 320px;
+    height: 200px;
+    background: linear-gradient(145deg, #ffffff, #f8f8f8);
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.8),
+                inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    margin-bottom: 20px;
+}
+
+.envelope:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+}
+
+/* Tampa do envelope */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 15px 15px 0 0;
+    transition: all 0.6s ease;
+    z-index: 2;
+    transform-origin: top;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.envelope-flap::before {
+    content: "✧";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #ffb6c1;
+    opacity: 0.6;
+}
+
+.envelope-flap::after {
+    content: "✧";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #ffb6c1;
+    opacity: 0.6;
+    margin-left: 25px;
+}
+
+.envelope-flap.open {
+    height: 0;
+    opacity: 0;
+}
+
+/* Corpo do envelope */
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Linhas decorativas do envelope */
+.envelope-body::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px dashed rgba(30, 106, 138, 0.2);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.envelope-heart {
+    font-size: 55px;
+    animation: heartbeat 1.3s ease-in-out infinite;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+}
+
+/* Estrelinhas brilhando no envelope */
+@keyframes sparkleEnvelope {
+    0%, 100% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.envelope::before {
+    content: "✨";
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    font-size: 20px;
+    animation: sparkleEnvelope 2s ease-in-out infinite;
+}
+
+.envelope::after {
+    content: "💫";
+    position: absolute;
+    bottom: -15px;
+    right: -10px;
+    font-size: 20px;
+    animation: sparkleEnvelope 2s ease-in-out infinite 0.5s;
+}
+
+/* CARTA - Totalmente legível */
+.letter {
+    position: absolute;
+    width: 290px;
+    background: #fffef7;
+    border-radius: 15px;
+    padding: 0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    pointer-events: none;
+    z-index: 3;
+    border: 1px solid rgba(255, 215, 215, 0.5);
+}
+
+.letter.open {
+    opacity: 1;
+    transform: translateY(-220px) scale(1);
+    pointer-events: auto;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25);
+}
+
+.letter-content {
+    padding: 25px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Scroll bonito */
+.letter-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.letter-content::-webkit-scrollbar-track {
+    background: #fce4ec;
+    border-radius: 10px;
+}
+
+.letter-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #2c7da0, #1e6a8a);
+    border-radius: 10px;
+}
+
+.letter-content::-webkit-scrollbar-thumb:hover {
+    background: #ffb6c1;
+}
+
+/* Título da carta */
+.letter-title {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.5rem;
+    color: #1e6a8a;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ffb6c1;
+    padding-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Texto da carta - LEGÍVEL */
+.letter-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+
+.letter-text p {
+    margin-bottom: 12px;
+}
+
+.letter-text .highlight {
+    color: #1e6a8a;
+    font-weight: 600;
+}
+
+.letter-signature {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.1rem;
+    color: #1e6a8a;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.letter-name {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.3rem;
+    color: #ff6b8b;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Botão de abrir envelope */
+.open-letter-btn {
+    background: linear-gradient(135deg, #2c7da0, #1e6a8a);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(30, 106, 138, 0.3);
+}
+
+.open-letter-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s;
+}
+
+.open-letter-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.open-letter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(30, 106, 138, 0.4);
+    background: linear-gradient(135deg, #3589ae, #257a9a);
+}
+
+.open-letter-btn:active {
+    transform: translateY(0px);
+}
+
+/* Animação do coração */
+@keyframes heartbeat {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% { 
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+/* Dica */
+.hint {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #2c7da0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+    padding: 6px 20px;
+    border-radius: 35px;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(30, 106, 138, 0.2);
+    font-weight: 500;
+}
+
+.hint::before {
+    content: "💙";
+    font-size: 0.85rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.hint::after {
+    content: "💙";
+    font-size: 0.85rem;
+    animation: bounce 2s ease-in-out infinite 0.3s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+.hint:hover {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e6a8a;
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(30, 106, 138, 0.2);
+}
+
+/* Linha decorativa */
+.star-line {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 6px;
+    color: rgba(30, 106, 138, 0.4);
+    text-align: center;
+}
+
+/* Animações de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, .img-wrapper, .counter, .letter-button, .hint, .star-line {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.img-wrapper { animation-delay: 0.1s; }
+.counter { animation-delay: 0.2s; }
+.letter-button { animation-delay: 0.25s; }
+.hint { animation-delay: 0.3s; }
+.star-line { animation-delay: 0.4s; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        padding: 8px 25px;
+        margin-bottom: 20px;
+    }
+    
+    h1::before, h1::after {
+        font-size: 1.4rem;
+    }
+    
+    h1::before { left: -22px; }
+    h1::after { right: -22px; }
+    
+    #imagem {
+        width: 260px;
+        height: 260px;
+    }
+    
+    .envelope { width: 280px; height: 180px; }
+    .letter { width: 260px; }
+    .letter.open { transform: translateY(-195px) scale(1); }
+    .letter-title { font-size: 1.3rem; }
+    .letter-text { font-size: 0.85rem; }
+    
+    .modal-content {
+        margin: 10% auto;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+        padding: 6px 18px;
+    }
+    
+    h1::before, h1::after {
+        display: none;
+    }
+    
+    #imagem {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .envelope { width: 250px; height: 160px; }
+    .letter { width: 230px; }
+    .letter.open { transform: translateY(-175px) scale(1); }
+    .letter-content { padding: 18px; }
+    .letter-title { font-size: 1.1rem; }
+    .letter-text { font-size: 0.8rem; }
+    .letter-signature { font-size: 0.9rem; }
+    .letter-name { font-size: 1rem; }
+    
+    .letter-button {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .open-letter-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+}

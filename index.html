@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💙 Memórias Especiais com a Mamãe 💙</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Cantos decorativos -->
+    <div class="corner-decoration corner-1">🌸</div>
+    <div class="corner-decoration corner-2">🌼</div>
+    <div class="corner-decoration corner-3">💙</div>
+    <div class="corner-decoration corner-4">✨</div>
+
+    <div class="container">
+        <h1 id="frase"></h1>
+        
+        <div class="img-wrapper">
+            <img id="imagem" src="" alt="Momento especial com a mamis" onclick="proximaFoto()">
+        </div>
+        
+        <div class="counter" id="counter"></div>
+        
+        <!-- Botão especial da cartinha -->
+        <button class="letter-button" onclick="abrirCartinha()">
+            <span class="button-icon">💌</span>
+            <span class="button-text">Mensagem Especial</span>
+            <span class="button-icon">💙</span>
+        </button>
+        
+        <div class="hint">💙 Clique na foto para mais momentos especiais 💙</div>
+        <div class="star-line">✧ ⋆ ° . ✧ ⋆ ° . ✧ ⋆ ° . ✧</div>
+    </div>
+
+    <!-- Modal do Envelope/Cartinha -->
+    <div id="envelopeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="fecharCartinha()">&times;</span>
+            
+            <div class="envelope-container">
+                <div class="envelope" id="envelope" onclick="abrirEnvelope()">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <div class="envelope-heart">💙</div>
+                    </div>
+                </div>
+                
+                <div class="letter" id="letter">
+                    <div class="letter-content">
+                        <h2 class="letter-title">Para a melhor maãe do mundo!</h2>
+                        <div class="letter-text">
+                            <p> <strong class="highlight">Mãe,</strong> </p>
+                            <br>
+                            <p> <strong>Você é a pessoa mais especial da minha vida!</strong></p>
+                            <p> <strong>Obrigada por cada abraço, cada sorriso e cada momento ao seu lado.</strong></p>
+                            <p> <strong>Você é meu porto seguro, minha melhor amiga e meu maior exemplo.</strong></p>
+                            <p> <strong>Que Deus te abençoe sempre com muita saúde, paz e alegria.</strong></p>
+                            <p> <strong>Eu te amo mais do que palavras podem expressar!</strong></p>
+                            <br>
+                            <p> <strong>Cada momento ao seu lado é um presente que eu guardo no coração.</strong></p>
+                            <p> <strong>Você é a luz que ilumina meus dias e a razão do meu sorriso.</strong></p>
+                            <br>
+                            <p class="letter-signature"><strong>Com todo amor do mundo,</strong></p>
+                            <p class="letter-name"><strong>Binho 💙</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="open-letter-btn" onclick="abrirEnvelope()">💌 Abrir Envelope ✨</button>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
